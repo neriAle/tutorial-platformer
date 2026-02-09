@@ -328,6 +328,7 @@ sources/0 = SubResource("TileSetAtlasSource_ng53c")
 [node name="TileMap" type="TileMap" parent="." unique_id=839495482]
 tile_set = SubResource("TileSet_raj0s")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, -65530, 65536, 0, 6, 65536, 1, -65529, 65536, 0, 7, 65536, 1, -65528, 65536, 0, 8, 65536, 1, -65527, 65536, 0, 9, 65536, 1)
+layer_0/name = "one_way_ground"
+layer_1/name = "ground"
 
 [node name="Player" parent="." unique_id=1065798194 instance=ExtResource("2_ng53c")]
