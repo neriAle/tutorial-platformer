@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sl0hgg2vxt1q" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://7g6xpyd7ja14" path="res://Sprites/player.png" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://kyx7svoosq63" path="res://Scripts/player_animator.gd" id="2_6t5aa"]
 
 [sub_resource type="Animation" id="Animation_cvnsp"]
 length = 0.001
@@ -106,7 +107,11 @@ metadata/_edit_group_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2029922660]
 zoom = Vector2(6, 6)
 
-[node name="PlayerAnimator" type="Node2D" parent="." unique_id=335062253]
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=335062253 node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
+script = ExtResource("2_6t5aa")
+player_controller = NodePath("..")
+animation_player = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=468486831]
 root_node = NodePath("../..")
@@ -120,6 +125,5 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655034020]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_6t5aa")
