@@ -102,10 +102,12 @@ height = 14.0
 [node name="Player" type="CharacterBody2D" unique_id=1065798194]
 position = Vector2(0, -8)
 script = ExtResource("1_cvnsp")
+speed = 4.0
+jump_power = 10.0
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2029922660]
-zoom = Vector2(6, 6)
+zoom = Vector2(5, 5)
 
 [node name="PlayerAnimator" type="Node2D" parent="." unique_id=335062253 node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
 script = ExtResource("2_6t5aa")
