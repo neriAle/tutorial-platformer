@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AgentAnimator/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -16,6 +16,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "fall"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 48, 16, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_6t5aa"]
@@ -26,7 +42,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AgentAnimator/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,10 +52,46 @@ tracks/0/keys = {
 "values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16), Rect2(96, 0, 16, 16), Rect2(96, 0, 16, 16)]
 }
 
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "jump"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 32, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "move"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(48, 16, 16, 16), Rect2(0, 16, 16, 16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
 _data = {
 &"RESET": SubResource("Animation_cvnsp"),
-&"idle": SubResource("Animation_6t5aa")
+&"fall": SubResource("Animation_x3wgy"),
+&"idle": SubResource("Animation_6t5aa"),
+&"jump": SubResource("Animation_fkybt"),
+&"move": SubResource("Animation_vgqql")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
@@ -54,18 +106,20 @@ metadata/_edit_group_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2029922660]
 zoom = Vector2(6, 6)
 
-[node name="AgentAnimator" type="Node2D" parent="." unique_id=335062253]
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=335062253]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AgentAnimator" unique_id=468486831]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=468486831]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_vgqql")
 autoplay = &"idle"
+speed_scale = 1.5
 
-[node name="Sprite2D" type="Sprite2D" parent="AgentAnimator" unique_id=523654391]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=523654391]
 texture = ExtResource("1_v0iea")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655034020]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_6t5aa")
