@@ -2,6 +2,98 @@
 
 [ext_resource type="Script" uid="uid://sl0hgg2vxt1q" path="res://Scripts/player_controller.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://7g6xpyd7ja14" path="res://Sprites/player.png" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://kyx7svoosq63" path="res://Scripts/player_animator.gd" id="2_6t5aa"]
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "fall"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 48, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16), Rect2(96, 0, 16, 16), Rect2(96, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "jump"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 32, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "move"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(48, 16, 16, 16), Rect2(0, 16, 16, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
+_data = {
+&"RESET": SubResource("Animation_cvnsp"),
+&"fall": SubResource("Animation_x3wgy"),
+&"idle": SubResource("Animation_6t5aa"),
+&"jump": SubResource("Animation_fkybt"),
+&"move": SubResource("Animation_vgqql")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
 radius = 5.0
@@ -15,12 +107,19 @@ metadata/_edit_group_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2029922660]
 zoom = Vector2(6, 6)
 
-[node name="AgentAnimator" type="Node2D" parent="." unique_id=335062253]
+[node name="PlayerAnimator" type="Node2D" parent="." unique_id=335062253 node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
+script = ExtResource("2_6t5aa")
+player_controller = NodePath("..")
+animation_player = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AgentAnimator" unique_id=468486831]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator" unique_id=468486831]
 root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_vgqql")
+autoplay = &"idle"
+speed_scale = 1.5
 
-[node name="Sprite2D" type="Sprite2D" parent="AgentAnimator" unique_id=523654391]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerAnimator" unique_id=523654391]
 texture = ExtResource("1_v0iea")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)

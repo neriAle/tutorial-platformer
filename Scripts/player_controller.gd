@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name PlayerController
 
 @export var speed = 5.0
 @export var jump_power = 8.0
