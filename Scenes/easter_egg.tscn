@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://db6uqilrpix5x"]
+
+[ext_resource type="Texture2D" uid="uid://cyxjktmrdn6cr" path="res://Sprites/eggs.png" id="1_aq3mi"]
+
+[node name="EasterEgg" type="Sprite2D" unique_id=2117104408]
+texture = ExtResource("1_aq3mi")
+region_enabled = true
+region_rect = Rect2(16, 32, 16, 16)
