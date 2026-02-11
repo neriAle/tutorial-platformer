@@ -343,28 +343,35 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_h0g87"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 184, 0, 0, 0, 0, 176, 184, 0, 0, 0, 0, 176, 72, 0, 0, 0, 0, 88, 72, 0, 0, 0, 0, 88, -128, 0, 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 8
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_f81ap"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 150)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 184, 0, 0, 0, 0, 176, 184, 0, 0, 0, 0, 176, 72, 0, 0, 0, 0, 88, 72, 0, 0, 0, 0, 88, -128, 0, 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 0)
 }
-point_count = 2
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_vhlnj"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -688, 288)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 168)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_7fadb"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 190, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -688, 288)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_66mxf"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 110, 0)
 }
 point_count = 2
 
@@ -390,25 +397,29 @@ curve = SubResource("Curve2D_n7iet")
 position = Vector2(450, -8)
 curve = SubResource("Curve2D_a202p")
 
+[node name="MovingPlatformLarge6" parent="MovingPlatforms" unique_id=1580227099 instance=ExtResource("3_raj0s")]
+position = Vector2(600, -71)
+curve = SubResource("Curve2D_h0g87")
+
 [node name="MovingPlatformLarge7" parent="MovingPlatforms" unique_id=1711746020 instance=ExtResource("3_raj0s")]
 position = Vector2(640, -448)
-curve = SubResource("Curve2D_h0g87")
+curve = SubResource("Curve2D_f81ap")
 looping = true
 path_time = 7.0
 transition = 0
 
 [node name="MovingPlatformLarge4" parent="MovingPlatforms" unique_id=2048409512 instance=ExtResource("3_raj0s")]
 position = Vector2(638, -240)
-curve = SubResource("Curve2D_f81ap")
+curve = SubResource("Curve2D_vhlnj")
 
 [node name="MovingPlatformLarge5" parent="MovingPlatforms" unique_id=2109444294 instance=ExtResource("3_raj0s")]
 position = Vector2(608, -448)
-curve = SubResource("Curve2D_vhlnj")
+curve = SubResource("Curve2D_7fadb")
 path_time = 7.0
 
 [node name="MovingPlatformLarge3" parent="MovingPlatforms" unique_id=1117551553 instance=ExtResource("3_raj0s")]
 position = Vector2(450, -71)
-curve = SubResource("Curve2D_7fadb")
+curve = SubResource("Curve2D_66mxf")
 
 [node name="EasterEgg" parent="." unique_id=2117104408 instance=ExtResource("4_n7iet")]
 position = Vector2(-176, -168)
