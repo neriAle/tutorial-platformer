@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b5nedshcbkix7" path="res://Scenes/player.tscn" id="2_ng53c"]
 [ext_resource type="PackedScene" uid="uid://dc270vq88bbsg" path="res://Scenes/moving_platform_large.tscn" id="3_raj0s"]
 [ext_resource type="PackedScene" uid="uid://db6uqilrpix5x" path="res://Scenes/easter_egg.tscn" id="4_n7iet"]
+[ext_resource type="PackedScene" uid="uid://c5ugv1qxo0yc2" path="res://Scenes/Area Functionality/area_exit.tscn" id="5_a202p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ng53c"]
 texture = ExtResource("1_wjp1n")
@@ -419,3 +420,6 @@ curve = SubResource("Curve2D_66mxf")
 
 [node name="EasterEgg" parent="." unique_id=2117104408 instance=ExtResource("4_n7iet")]
 position = Vector2(-176, -168)
+
+[node name="AreaExit" parent="." unique_id=1373075661 instance=ExtResource("5_a202p")]
+position = Vector2(1088, -604)

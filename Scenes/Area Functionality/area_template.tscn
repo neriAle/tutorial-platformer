@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c3akleea6fin2" path="res://Sprites/tiles_1.png" id="1_t0wvy"]
 [ext_resource type="PackedScene" uid="uid://b5nedshcbkix7" path="res://Scenes/player.tscn" id="2_hf8eo"]
+[ext_resource type="PackedScene" uid="uid://c5ugv1qxo0yc2" path="res://Scenes/Area Functionality/area_exit.tscn" id="3_twvbk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ng53c"]
 texture = ExtResource("1_t0wvy")
@@ -336,3 +337,6 @@ layer_1/tile_data = PackedInt32Array(196611, 131072, 5, 131075, 131072, 5, 65539
 [node name="Player" parent="." unique_id=1065798194 instance=ExtResource("2_hf8eo")]
 
 [node name="MovingPlatforms" type="Node2D" parent="." unique_id=1345824350]
+
+[node name="AreaExit" parent="." unique_id=1373075661 instance=ExtResource("3_twvbk")]
+position = Vector2(-48, -16)
