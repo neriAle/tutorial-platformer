@@ -15,6 +15,10 @@ run/main_scene="uid://djsvdadut61d0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://xqwhf067s5yf"
+
 [input]
 
 jump={
@@ -43,6 +47,7 @@ move_down={
 2d_physics/layer_1="player"
 2d_physics/layer_9="ground"
 2d_physics/layer_10="one_way_ground"
+2d_physics/layer_17="transitions"
 
 [physics]
 
