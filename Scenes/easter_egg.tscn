@@ -2,7 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cyxjktmrdn6cr" path="res://Sprites/eggs.png" id="1_aq3mi"]
 
-[node name="EasterEgg" type="Sprite2D" unique_id=2117104408]
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq3mi"]
+radius = 6.0
+
+[node name="EasterEgg" type="Area2D" unique_id=1274219897]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1078766688]
 texture = ExtResource("1_aq3mi")
 region_enabled = true
 region_rect = Rect2(16, 32, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679798299]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_aq3mi")
