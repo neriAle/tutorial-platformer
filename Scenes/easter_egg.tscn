@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://db6uqilrpix5x"]
 
 [ext_resource type="Texture2D" uid="uid://cyxjktmrdn6cr" path="res://Sprites/eggs.png" id="1_aq3mi"]
+[ext_resource type="Script" uid="uid://b2fkwxiis4oup" path="res://Scripts/easter_egg.gd" id="1_dxjnb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq3mi"]
 radius = 6.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dxjnb"]
+lifetime_randomness = 0.2
+emission_shape = 2
+emission_sphere_radius = 5.0
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+
 [node name="EasterEgg" type="Area2D" unique_id=1274219897]
+script = ExtResource("1_dxjnb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1078766688]
 texture = ExtResource("1_aq3mi")
@@ -15,3 +26,10 @@ region_rect = Rect2(16, 32, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679798299]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_aq3mi")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1988975642]
+amount = 10
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_dxjnb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
