@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://xqwhf067s5yf"
 
+[global_group]
+
+area_exits=""
+
 [input]
 
 jump={

@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dyjotyums450m"]
 
+[ext_resource type="Script" uid="uid://beottaxawga6v" path="res://Scripts/area_template.gd" id="1_iig0q"]
 [ext_resource type="Texture2D" uid="uid://c3akleea6fin2" path="res://Sprites/tiles_1.png" id="1_t0wvy"]
 [ext_resource type="PackedScene" uid="uid://b5nedshcbkix7" path="res://Scenes/player.tscn" id="2_hf8eo"]
 [ext_resource type="PackedScene" uid="uid://c5ugv1qxo0yc2" path="res://Scenes/Area Functionality/area_exit.tscn" id="3_twvbk"]
+[ext_resource type="PackedScene" uid="uid://bokpxa0gflf5c" path="res://Scenes/energy_cell.tscn" id="4_g4kau"]
+[ext_resource type="PackedScene" uid="uid://db6uqilrpix5x" path="res://Scenes/easter_egg.tscn" id="4_tuol7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ng53c"]
 texture = ExtResource("1_t0wvy")
@@ -326,6 +329,7 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ng53c")
 
 [node name="AreaTemplate" type="Node2D" unique_id=1734945463]
+script = ExtResource("1_iig0q")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=839495482]
 tile_set = SubResource("TileSet_raj0s")
@@ -336,7 +340,17 @@ layer_1/tile_data = PackedInt32Array(196611, 131072, 5, 131075, 131072, 5, 65539
 
 [node name="Player" parent="." unique_id=1065798194 instance=ExtResource("2_hf8eo")]
 
-[node name="MovingPlatforms" type="Node2D" parent="." unique_id=1345824350]
-
 [node name="AreaExit" parent="." unique_id=1373075661 instance=ExtResource("3_twvbk")]
 position = Vector2(-48, -16)
+
+[node name="MovingPlatforms" type="Node2D" parent="." unique_id=1345824350]
+
+[node name="EnergyCells" type="Node2D" parent="." unique_id=711709689]
+
+[node name="EnergyCell" parent="EnergyCells" unique_id=1741710150 instance=ExtResource("4_g4kau")]
+position = Vector2(40, -16)
+
+[node name="EasterEggs" type="Node2D" parent="." unique_id=1703820301]
+
+[node name="EasterEgg" parent="EasterEggs" unique_id=1274219897 instance=ExtResource("4_tuol7")]
+position = Vector2(0, -40)
