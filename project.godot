@@ -25,6 +25,7 @@ area_exits=""
 area_container=""
 player=""
 player_start_position=""
+hud=""
 
 [input]
 
