@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if is_open && body is PlayerController:
-		GameManager.next_level()
+		GameManager.next_area()
 		
 func open_portal():
 	is_open = true
