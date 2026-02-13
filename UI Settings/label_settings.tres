@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ba3wc83f2wfke"]
+
+[ext_resource type="FontFile" uid="uid://bw15m7axo8pb4" path="res://Fonts/Kenney Mini.ttf" id="1_uhg6f"]
+
+[resource]
+font = ExtResource("1_uhg6f")
+font_size = 32
