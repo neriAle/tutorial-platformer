@@ -8,8 +8,10 @@ var energy_cells_to_collect: int = 0
 
 var area_container: Node2D
 var player: PlayerController
+var hud: HUD
 
 func _ready() -> void:
+	hud = get_tree().get_first_node_in_group("hud")
 	area_container = get_tree().get_first_node_in_group("area_container")
 	player = get_tree().get_first_node_in_group("player")
 	load_area(starting_area)
@@ -43,10 +45,15 @@ func set_energy_cells_area(amount: int):
 	
 func reset_energy_cells():
 	energy_cells_collected = 0
+	hud.update_energy_cell_label(energy_cells_collected)
+	hud.portal_closed()
+	
 	
 func collect_energy_cell():
 	energy_cells_collected += 1
+	hud.update_energy_cell_label(energy_cells_collected)
 	if energy_cells_collected >= energy_cells_to_collect:
 		var area_exit = get_tree().get_first_node_in_group("area_exits") as AreaExit
 		area_exit.open_portal()
+		hud.portal_opened()
 	
