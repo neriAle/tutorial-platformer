@@ -8,7 +8,8 @@ class_name MovingPlatform
 @export var transition: Tween.TransitionType
 
 func _ready() -> void:
-	move_tween()
+	if curve.get_baked_length() > 0.0:
+		move_tween()
 	
 func move_tween():
 	var tween = get_tree().create_tween().set_loops()
